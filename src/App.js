@@ -1,7 +1,15 @@
+import Header from './components/Header';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
+import Movies from './components/Movies';
+
 function App() {
-	return (
-		null
-	);
+  return (
+    <>
+      <Header />
+      <Movies />
+    </>
+  );
 }
 
 export default App;
