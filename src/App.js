@@ -7,6 +7,7 @@ import './App.css';
 import Movies from './components/Movies';
 import Favorites from './components/Favorites';
 import LoginPage from './components/LoginPage';
+import MoviePage from './components/MoviePage';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
 
           <Route path="favorites" element={<Favorites />} />
           <Route path="signin" element={<LoginPage />} />
+          <Route path="/movie/:id" element={<MoviePage />} />
 
         </Routes>
       </Provider>

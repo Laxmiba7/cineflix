@@ -57,9 +57,9 @@ const Favorites = () => {
                 </p>
                 <button
                   type="submit"
-                  className="btn btn-primary"
+                  className="btn btn-danger"
                 >
-                  Add to Favroites
+                  Delete
                 </button>
 
               </div>

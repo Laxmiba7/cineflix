@@ -3,6 +3,7 @@ import React from 'react';
 // import { AiOutlineStar } from 'react-icons/ai';
 import ReactStars from 'react-rating-stars-component';
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import AddToFav from '../redux/action/AddToFav';
 
 const Movie = (props) => {
@@ -15,14 +16,14 @@ const Movie = (props) => {
     <div className="col-3">
       <div className="card mb-5">
         <div style={{ height: '275px' }} className="imageSize d-flex justify-content-center">
-
-          <img
-            src={`https://image.tmdb.org/t/p/w500${posterPath}`}
-            className="card-img-top img-fluid mx-auto"
-            alt="..."
-            style={{ height: '100%', width: 'auto' }}
-          />
-
+          <Link to={`/movie/${id}`}>
+            <img
+              src={`https://image.tmdb.org/t/p/w500${posterPath}`}
+              className="card-img-top img-fluid mx-auto"
+              alt="..."
+              style={{ height: '100%', width: 'auto' }}
+            />
+          </Link>
         </div>
 
         <div className="card-body">
@@ -42,7 +43,7 @@ const Movie = (props) => {
             />
           </div>
 
-          <h3 className="card-title mt-2">{title}</h3>
+          <h3 className="card-title mt-2"><Link to="/product" style={{ textDecoration: 'none', color: '#000' }}>{title}</Link></h3>
           <div className="d-flex flex-column justify-content-between">
             <h5>Description:</h5>
 
