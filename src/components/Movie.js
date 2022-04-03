@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import { AiOutlineStar } from 'react-icons/ai';
+// import { AiOutlineStar } from 'react-icons/ai';
+import ReactStars from 'react-rating-stars-component';
 
 const Movie = (props) => {
   const {
@@ -9,7 +10,7 @@ const Movie = (props) => {
   return (
     <div className="col-3">
       <div className="card mb-5">
-        <div style={{ height: '275px' }}>
+        <div style={{ height: '275px' }} className="imageSize d-flex justify-content-center">
 
           <img
             src={`https://image.tmdb.org/t/p/w500${posterPath}`}
@@ -22,13 +23,14 @@ const Movie = (props) => {
 
         <div className="card-body">
           <div className="row">
-            <div className="col">
+            {/* <div className="col">
               <AiOutlineStar />
               <AiOutlineStar />
               <AiOutlineStar />
               <AiOutlineStar />
               <AiOutlineStar />
-            </div>
+            </div> */}
+            <ReactStars count={5} size={30} isHalf />
             <div
               className="btn-group col"
               role="group"
