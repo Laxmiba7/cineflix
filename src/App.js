@@ -6,6 +6,7 @@ import store from './redux/reducers/store';
 import './App.css';
 import Movies from './components/Movies';
 import Favorites from './components/Favorites';
+import LoginPage from './components/LoginPage';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/" element={<Movies />} />
 
           <Route path="favorites" element={<Favorites />} />
+          <Route path="signin" element={<LoginPage />} />
 
         </Routes>
       </Provider>

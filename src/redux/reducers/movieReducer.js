@@ -1,10 +1,11 @@
 /* eslint-disable no-case-declarations */
-import { ADD_TO_FAV, MOVIE_LIST } from '../constants';
+import { ADD_TO_FAV, MOVIE_LIST, SEARCH_ITEM } from '../constants';
 
 const initialState = {
   movie: [],
   isLoading: true,
   fav: [],
+
 };
 
 const movieReducer = (state = initialState, action) => {
@@ -16,11 +17,26 @@ const movieReducer = (state = initialState, action) => {
       };
     case ADD_TO_FAV:
       const inFav = state.fav.find((x) => x.id === action.payload.id);
-      const favProduct = state.movie.filter((product) => product.id === action.payload.id)[0];
+
+      const favProduct = state.movie.filter(
+        (product) => product.id === action.payload.id,
+      )[0];
+
       return {
         ...state,
-        fav: inFav ? alert('Already in your Fav List')
-          : [...state.inFav, { ...favProduct }],
+        fav: inFav ? [...state.fav] : [...state.fav, { ...favProduct }],
+      };
+
+    case SEARCH_ITEM:
+      // eslint-disable-next-line eqeqeq
+      const item = Object.values(action.payload.title);
+      const searchedItems = state.movie.find(
+        (x) => x.title === item[0],
+      );
+
+      return {
+        ...state,
+        movie: searchedItems,
       };
 
     default:

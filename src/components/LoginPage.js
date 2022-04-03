@@ -1,19 +1,18 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
-import Header from './Header';
 
 const LoginPage = () => (
   <>
     <div
       className="vh-100 gradient-custom"
-      style={{ backgroundColor: '#323c7d' }}
+      style={{ backgroundColor: '#222b31' }}
     >
       <div className="container py-5 h-100">
         <div className="row d-flex justify-content-center align-items-center h-100">
           <div className="col-12 col-md-8 col-lg-6 col-xl-5">
             <div
-              className="card bg-dark text-white"
-              style={{ borderradius: '1rem' }}
+              className="card text-white"
+              style={{ borderradius: '1rem', backgroundColor: '#ff424f' }}
             >
               <div className="card-body p-5 text-center">
                 <div className="mb-md-5 mt-md-4 pb-5">
@@ -72,7 +71,7 @@ const LoginPage = () => (
 
                 <div>
                   <p className="mb-0">
-                    Don't have an account?
+                    Dont have an account?
                     <a href="#!" className="text-white-50 fw-bold">
                       Sign Up
                     </a>
