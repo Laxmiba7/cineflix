@@ -5,7 +5,6 @@ import Movie from './Movie';
 
 const Movies = () => {
   const data = useSelector((state) => state.movie.movie);
-  console.log(data);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchData());
@@ -19,6 +18,7 @@ const Movies = () => {
           title={data.title}
           desc={data.overview}
           date={data.release_date}
+          id={data.id}
         />
       ))}
     </div>

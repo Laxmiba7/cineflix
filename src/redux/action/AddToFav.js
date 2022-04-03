@@ -1,12 +1,10 @@
-import { ADD_TO_FAV } from "../constants"
+import { ADD_TO_FAV } from '../constants';
 
-const AddToFav = (itemId, value) => {
-  return (
-    type: ADD_TO_FAV,
-    payload: {
-        id: itemId,
-        value
-    }
-  )
+const AddToFav = (itemId) => ({
+  type: ADD_TO_FAV,
+  payload: {
+    id: itemId,
+  },
 }
+);
 export default AddToFav;

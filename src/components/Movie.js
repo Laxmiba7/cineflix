@@ -2,10 +2,13 @@
 import React from 'react';
 // import { AiOutlineStar } from 'react-icons/ai';
 import ReactStars from 'react-rating-stars-component';
+import { useDispatch } from 'react-redux';
+import AddToFav from '../redux/action/AddToFav';
 
 const Movie = (props) => {
+  const dispatch = useDispatch();
   const {
-    title, posterPath, desc, date,
+    title, posterPath, desc, date, id,
   } = props;
   return (
     <div className="col-3">
@@ -53,6 +56,9 @@ const Movie = (props) => {
           <button
             type="submit"
             className="btn btn-primary"
+            onClick={() => {
+              dispatch(AddToFav(id));
+            }}
           >
             Add to Favroites
           </button>

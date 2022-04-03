@@ -1,4 +1,5 @@
 import React from 'react';
+import { AiOutlineStar } from 'react-icons/ai';
 
 const Favotites = () => (
   <div className="col-3">

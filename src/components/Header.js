@@ -1,8 +1,9 @@
 import { Formik, Form, Field } from 'formik';
 import React from 'react';
 import {
-  Navbar, Container, Button, NavLink,
+  Navbar, Container, Button,
 } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
 import { BiUserCircle } from 'react-icons/bi';
 
 const Header = () => (
@@ -27,7 +28,7 @@ const Header = () => (
               </div>
 
               <div className="nav-avatar d-flex">
-                <NavLink className="text-white">My Favorites</NavLink>
+                <NavLink className="text-white" to="favorites" style={{ textDecoration: 'none' }}>My Favorites</NavLink>
                 <BiUserCircle />
                 <h4 className="ms-3">Sign In</h4>
 
