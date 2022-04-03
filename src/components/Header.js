@@ -1,7 +1,7 @@
 import { Formik, Form, Field } from 'formik';
 import React from 'react';
 import {
-  Navbar, Container, Button,
+  Navbar, Container, Button, NavLink,
 } from 'react-bootstrap';
 import { BiUserCircle } from 'react-icons/bi';
 
@@ -18,7 +18,7 @@ const Header = () => (
                 <Form className="">
                   <Field
                     type="search"
-                    placeholder="Search"
+                    placeholder="Search by title"
                     className="me-2"
                     aria-label="Search"
                   />
@@ -27,8 +27,9 @@ const Header = () => (
               </div>
 
               <div className="nav-avatar d-flex">
+                <NavLink className="text-white">My Favorites</NavLink>
                 <BiUserCircle />
-                <h4 className="ms-3">Sign Out</h4>
+                <h4 className="ms-3">Sign In</h4>
 
               </div>
 
