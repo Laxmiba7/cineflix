@@ -1,11 +1,13 @@
 /* eslint-disable no-case-declarations */
-import { ADD_TO_FAV, MOVIE_LIST, SEARCH_ITEM } from '../constants';
+import {
+  ADD_TO_FAV, MOVIE_LIST, SEARCH_ITEM, CLEAR_SEARCH,
+} from '../constants';
 
 const initialState = {
   movie: [],
   isLoading: true,
   fav: [],
-
+  searchItem: [],
 };
 
 const movieReducer = (state = initialState, action) => {
@@ -36,7 +38,13 @@ const movieReducer = (state = initialState, action) => {
 
       return {
         ...state,
-        movie: searchedItems,
+        searchItem: [searchedItems],
+      };
+
+    case CLEAR_SEARCH:
+      return {
+        ...state,
+        searchItem: [],
       };
 
     default:

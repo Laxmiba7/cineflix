@@ -4,7 +4,7 @@ import React from 'react';
 
 function TextError(props) {
   return (
-    <div>{props.children}</div>
+    <div className="error">{props.children}</div>
   );
 }
 

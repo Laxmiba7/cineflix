@@ -1,5 +1,6 @@
 body {
     background-color: #222b31;
+    overflow-x: hidden;
 }
 .navbar {
     background-color: #ff424f;
@@ -8,13 +9,17 @@ body {
 
 .nav-avatar {
     font-size: 2rem;
-    margin-left: 30rem;
+    margin-left: 20rem;
     
 }
 .nav-searchbar {
-    margin-left: 15rem;
+    margin-left: 12rem;
 }
 
 .movies-container {
     margin: 2rem;
+}
+
+.error {
+    font-size: 1rem;
 }

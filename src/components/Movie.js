@@ -10,6 +10,7 @@ const Movie = (props) => {
   const {
     title, posterPath, desc, date, id,
   } = props;
+
   return (
     <div className="col-3">
       <div className="card mb-5">

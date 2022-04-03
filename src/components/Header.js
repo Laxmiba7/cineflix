@@ -11,6 +11,7 @@ import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import TextError from './TextError';
 import SearchItem from '../redux/action/SearchItem';
+import clearSearch from '../redux/action/ClearSearch';
 
 const initialValues = {
   title: '',
@@ -31,7 +32,7 @@ const Header = () => {
       <div>
         <Navbar expand="lg">
           <Container fluid>
-            <Link to="/" style={{ textDecoration: 'none' }}>
+            <Link to="/" style={{ textDecoration: 'none' }} onClick={() => dispatch(clearSearch())}>
               {' '}
               <Navbar.Brand>CineFlix</Navbar.Brand>
             </Link>
@@ -54,9 +55,9 @@ const Header = () => {
                 </div>
 
                 <div className="nav-avatar d-flex">
-                  <NavLink className="text-white" to="favorites" style={{ textDecoration: 'none' }}>My Favorites</NavLink>
+                  <NavLink className="text-white fs-5 me-3" to="favorites" style={{ textDecoration: 'none' }}>My Favorites</NavLink>
                   <BiUserCircle />
-                  <Link to="/signin" style={{ textDecoration: 'none' }}><h4 className="ms-3 text-white">Sign In</h4></Link>
+                  <Link to="/signin" style={{ textDecoration: 'none' }}><h4 className="ms-3 text-white fs-5">Sign In</h4></Link>
 
                 </div>
 
