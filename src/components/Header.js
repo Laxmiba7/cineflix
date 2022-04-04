@@ -3,10 +3,10 @@ import {
   Formik, Form, Field, ErrorMessage,
 } from 'formik';
 import {
-  Nav, Button, Navbar, Container, NavLink,
+  Nav, Button, Navbar, Container,
 } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { BiUserCircle } from 'react-icons/bi';
 import * as Yup from 'yup';
 import clearSearch from '../redux/action/ClearSearch';
@@ -24,9 +24,10 @@ const validationSchema = Yup.object({
 });
 const Header = () => {
   const dispatch = useDispatch();
-  const onSubmit = (values) => {
+  const onSubmit = (values, onSubmitProps) => {
     dispatch(SearchItem(values));
-    console.log(values, 'values');
+    onSubmitProps.setSubmitting(false);
+    onSubmitProps.resetForm();
   };
   return (
     <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
