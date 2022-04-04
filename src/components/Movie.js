@@ -7,12 +7,15 @@ import { Link } from 'react-router-dom';
 import AddToFav from '../redux/action/AddToFav';
 
 const Movie = (props) => {
+  // const [rating, setRating] = useState('[]');
   const dispatch = useDispatch();
   const {
     title, posterPath, desc, date, id,
   } = props;
   const ratingChanged = (rating) => {
     alert(`You have given ${rating} star for us`);
+    // setRating(rating);
+    localStorage.setItem('rating', JSON.stringify(rating));
   };
   return (
     <div className="col-3">

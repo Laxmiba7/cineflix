@@ -18,13 +18,14 @@ const validationSchema = Yup.object({
   email: Yup.string().email('Not a valid email').required('This is required field'),
   password: Yup.string().required('This is required'),
 });
-const LoginPage = () => {
+// eslint-disable-next-line react/prop-types
+const LoginPage = ({ authenticate }) => {
   const navigate = useNavigate();
   const onSubmit = (values, onSubmitProps) => {
     onSubmitProps.setSubmitting(false);
     onSubmitProps.resetForm();
-    console.log(values);
-    navigate('/');
+    authenticate();
+    navigate('/movies');
   };
   return (
     <>

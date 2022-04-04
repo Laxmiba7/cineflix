@@ -1,6 +1,7 @@
 import { Provider } from 'react-redux';
-import { Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
+import { useState } from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
+// import Header from './components/Header';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import store from './redux/reducers/store';
 import './App.css';
@@ -10,17 +11,26 @@ import LoginPage from './components/LoginPage';
 import MoviePage from './components/MoviePage';
 
 function App() {
+  const [user, setUser] = useState(null);
   return (
     <>
       <Provider store={store}>
-        <Header />
+
         <Routes>
-          <Route path="/" element={<Movies />} />
+          {!user && (
+          <Route path="/" element={<LoginPage authenticate={() => setUser(true)} />} />
+          )}
+          {user && (
+          <>
+            <>
+              <Route path="movies" element={<Movies />} />
+              <Route path="favorites" element={<Favorites />} />
+            </>
+            <Route path="/movie/:id" element={<MoviePage />} />
+          </>
 
-          <Route path="favorites" element={<Favorites />} />
-          <Route path="signin" element={<LoginPage />} />
-          <Route path="/movie/:id" element={<MoviePage />} />
-
+          )}
+          <Route path="*" element={<Navigate to={user ? '/movies' : '/'} />} />
         </Routes>
       </Provider>
     </>
