@@ -29,6 +29,7 @@ const LoginPage = ({ authenticate }) => {
   };
   return (
     <>
+
       <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
         <div
           className="vh-100 gradient-custom"
