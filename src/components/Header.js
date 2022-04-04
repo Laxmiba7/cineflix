@@ -60,9 +60,18 @@ const Header = () => {
                 navbarScroll
               >
                 <div className="nav-avatar d-flex">
-                  <NavLink className="text-white fs-5 me-3" to="favorites" style={{ textDecoration: 'none' }}>My Favorites</NavLink>
-                  <BiUserCircle className="mt-2" />
-                  <Link to="/signin" style={{ textDecoration: 'none' }}><h4 className="ms-3 text-white fs-5 mt-2">Sign In</h4></Link>
+                  <NavLink className="text-white  me-3 mt-3 fs-5" to="favorites" style={{ textDecoration: 'none' }}>My Favorites</NavLink>
+
+                  <Link to="/signin" style={{ textDecoration: 'none' }}>
+
+                    <h4 className="ms-3 text-white fs-5 mt-2">
+                      <Button variant="outline-light" type="submit">
+                        <BiUserCircle className="fs-4" />
+                        <span className=" ms-1">Sign In</span>
+                      </Button>
+
+                    </h4>
+                  </Link>
 
                 </div>
               </Nav>
