@@ -11,7 +11,9 @@ const Movie = (props) => {
   const {
     title, posterPath, desc, date, id,
   } = props;
-
+  const ratingChanged = (rating) => {
+    alert(`You have given ${rating} star for us`);
+  };
   return (
     <div className="col-3">
       <div className="card mb-5">
@@ -28,7 +30,7 @@ const Movie = (props) => {
 
         <div className="card-body">
           <div className="row">
-            <ReactStars count={5} size={30} isHalf />
+            <ReactStars count={5} size={30} isHalf onChange={ratingChanged} />
             <div
               className="btn-group col"
               role="group"
