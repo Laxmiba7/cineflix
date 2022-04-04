@@ -1,17 +1,17 @@
-import React from 'react';
 import {
   Formik, Form, Field, ErrorMessage,
 } from 'formik';
+import React from 'react';
 import {
-  Nav, Button, Navbar, Container, NavLink,
+  Navbar, Container, Button,
 } from 'react-bootstrap';
-import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { BiUserCircle } from 'react-icons/bi';
 import * as Yup from 'yup';
-import clearSearch from '../redux/action/ClearSearch';
+import { useDispatch } from 'react-redux';
 import TextError from './TextError';
 import SearchItem from '../redux/action/SearchItem';
+import clearSearch from '../redux/action/ClearSearch';
 
 const initialValues = {
   title: '',
@@ -26,12 +26,11 @@ const Header = () => {
   const dispatch = useDispatch();
   const onSubmit = (values) => {
     dispatch(SearchItem(values));
-    console.log(values, 'values');
   };
   return (
     <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
       <div>
-        <Navbar expand="lg" className="navbar">
+        <Navbar expand="lg">
           <Container fluid>
             <Link to="/" style={{ textDecoration: 'none' }} onClick={() => dispatch(clearSearch())}>
               {' '}
@@ -39,39 +38,36 @@ const Header = () => {
             </Link>
             <Navbar.Toggle aria-controls="navbarScroll" />
             <Navbar.Collapse id="navbarScroll">
+              <div className="d-flex">
+                <div className="nav-searchbar">
+                  <Form>
+                    <Field
+                      type="text"
+                      placeholder="Search by title"
+                      className="me-2"
+                      aria-label="Search"
+                      id="title"
+                      name="title"
+                    />
+                    <ErrorMessage name="title" component={TextError} />
+                    <Button type="submit" variant="outline-success">Search</Button>
+                  </Form>
+                </div>
 
-              <Form className="d-flex ms-5 formMargin">
-                <Field
-                  type="text"
-                  placeholder="Search by title"
-                  className="me-2"
-                  aria-label="Search"
-                  id="title"
-                  name="title"
-                />
-                <ErrorMessage name="title" component={TextError} />
-                <Button variant="success" type="submit">Search</Button>
-              </Form>
-
-              <Nav
-                className="ms-auto my-2 my-lg-0"
-                style={{ maxHeight: '100px' }}
-                navbarScroll
-              >
                 <div className="nav-avatar d-flex">
                   <NavLink className="text-white fs-5 me-3" to="favorites" style={{ textDecoration: 'none' }}>My Favorites</NavLink>
-                  <BiUserCircle className="mt-2" />
-                  <Link to="/signin" style={{ textDecoration: 'none' }}><h4 className="ms-3 text-white fs-5 mt-2">Sign In</h4></Link>
+                  <BiUserCircle />
+                  <Link to="/signin" style={{ textDecoration: 'none' }}><h4 className="ms-3 text-white fs-5">Sign In</h4></Link>
 
                 </div>
-              </Nav>
 
+              </div>
             </Navbar.Collapse>
           </Container>
         </Navbar>
+
       </div>
     </Formik>
   );
 };
-
 export default Header;

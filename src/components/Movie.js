@@ -28,13 +28,6 @@ const Movie = (props) => {
 
         <div className="card-body">
           <div className="row">
-            {/* <div className="col">
-              <AiOutlineStar />
-              <AiOutlineStar />
-              <AiOutlineStar />
-              <AiOutlineStar />
-              <AiOutlineStar />
-            </div> */}
             <ReactStars count={5} size={30} isHalf />
             <div
               className="btn-group col"
@@ -44,7 +37,7 @@ const Movie = (props) => {
           </div>
 
           <h3 className="card-title mt-2"><Link to="/product" style={{ textDecoration: 'none', color: '#000' }}>{title}</Link></h3>
-          <div className="d-flex flex-column justify-content-between">
+          <div className="d-flex flex-column justify-content-between" style={{ color: '#000' }}>
             <h5>Description:</h5>
 
             <p className="text-truncate">{desc}</p>
