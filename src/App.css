@@ -1,4 +1,4 @@
-body {
+body{
     background-color: #222b31;
     overflow-x: hidden;
     color: white;
@@ -30,6 +30,10 @@ body {
 .navbar{
     background-color: #ff424f;
 }
-.fav {
+.fav, .movies-container, p{
     color: #000;
+}
+
+.moviepage-container p{
+    color: #FFF;
 }

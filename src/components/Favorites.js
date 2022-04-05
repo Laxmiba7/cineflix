@@ -63,9 +63,8 @@ const Favorites = () => {
                   </div>
                   <p className="card-text">
                     Released Date:
-                    {' '}
-                    {Date}
-                    {' '}
+                    {item.release_date}
+
                   </p>
                   <button
                     type="submit"

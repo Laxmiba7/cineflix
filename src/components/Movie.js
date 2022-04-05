@@ -18,7 +18,7 @@ const Movie = (props) => {
     localStorage.setItem('rating', JSON.stringify(rating));
   };
   return (
-    <div className="col-3">
+    <div className="col-3 movie-container">
       <div className="card mb-5">
         <div style={{ height: '275px' }} className="imageSize d-flex justify-content-center">
           <Link to={`/movie/${id}`}>
@@ -58,6 +58,7 @@ const Movie = (props) => {
             className="btn btn-primary"
             onClick={() => {
               dispatch(AddToFav(id));
+              alert('Added Successfully');
             }}
           >
             Add to Favroites

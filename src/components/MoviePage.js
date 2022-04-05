@@ -1,11 +1,13 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { AiOutlineStar } from 'react-icons/ai';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import Header from './Header';
+import AddToFav from '../redux/action/AddToFav';
 
 const Product = () => {
   const params = useParams();
+  const dispatch = useDispatch();
   const userId = params.id;
   const data = useSelector((state) => state.movie.movie);
   // eslint-disable-next-line eqeqeq
@@ -16,7 +18,7 @@ const Product = () => {
     <div>
       <Header />
       {clickedItem.map((item) => (
-        <div className="row p-5 m-5" key={item.id}>
+        <div className="row p-5 m-5 moviepage-container" key={item.id}>
           <div className="col-4">
 
             <img
@@ -25,6 +27,15 @@ const Product = () => {
               style={{ height: 'auto', width: '100%' }}
               alt="Movie"
             />
+            <button
+              type="submit"
+              className="btn btn-primary mt-3"
+              onClick={() => {
+                dispatch(AddToFav(item.id));
+              }}
+            >
+              Add to Favroites
+            </button>
 
           </div>
 
@@ -46,14 +57,27 @@ const Product = () => {
                   </p>
                   <p>
                     Released Date:
-                    {item.date}
+                    {item.release_date}
+                  </p>
+                  <p>
+                    Original Title:
+                    {item.original_title}
+                  </p>
+                  <p>
+                    Vote Average:
+                    {item.vote_average}
+                  </p>
+                  <p>
+                    Vote Count:
+                    {item.vote_count}
+                  </p>
+                  <p>
+                    Popularity:
+                    {item.popularity}
                   </p>
                 </div>
               </div>
 
-              <button type="submit" className="btn btn-primary mt-4">
-                Add to cart
-              </button>
             </div>
           </div>
         </div>
