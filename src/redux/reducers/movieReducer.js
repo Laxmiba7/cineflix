@@ -33,12 +33,17 @@ const movieReducer = (state = initialState, action) => {
       // eslint-disable-next-line eqeqeq
       const item = Object.values(action.payload.title);
       const searchedItems = state.movie.find(
-        (x) => x.title === item[0],
+        (x) => x.title.toLowerCase() === item[0].toLowerCase(),
       );
-
+      if (searchedItems) {
+        return {
+          ...state,
+          searchItem: [searchedItems],
+        };
+      }
       return {
         ...state,
-        searchItem: [searchedItems],
+        searchItem: state.movie,
       };
 
     case CLEAR_SEARCH:
