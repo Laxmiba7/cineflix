@@ -1,10 +1,12 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { AiOutlineStar } from 'react-icons/ai';
 import Header from './Header';
+import deleteItem from '../redux/action/DeleteItem';
 
 const Favorites = () => {
   const favItems = useSelector((state) => state.movie.fav);
+  const dispatch = useDispatch();
   if (favItems.length === 0) {
     return (
       <div>
@@ -16,7 +18,7 @@ const Favorites = () => {
     );
   }
   return (
-    <div>
+    <div className="fav">
 
       <Header />
       <div className="container">
@@ -68,6 +70,7 @@ const Favorites = () => {
                   <button
                     type="submit"
                     className="btn btn-danger"
+                    onClick={() => dispatch(deleteItem(item.id))}
                   >
                     Delete
                   </button>

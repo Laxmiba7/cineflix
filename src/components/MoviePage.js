@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { AiOutlineStar } from 'react-icons/ai';
 import { useSelector } from 'react-redux';
+import Header from './Header';
 
 const Product = () => {
   const params = useParams();
@@ -13,7 +14,7 @@ const Product = () => {
 
   return (
     <div>
-
+      <Header />
       {clickedItem.map((item) => (
         <div className="row p-5 m-5" key={item.id}>
           <div className="col-4">

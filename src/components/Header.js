@@ -6,7 +6,7 @@ import {
   Nav, Button, Navbar, Container,
 } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink, Link, useNavigate } from 'react-router-dom';
 import { BiUserCircle } from 'react-icons/bi';
 import * as Yup from 'yup';
 import clearSearch from '../redux/action/ClearSearch';
@@ -21,6 +21,7 @@ const validationSchema = Yup.object({
   title: Yup.string().required('Please Enter a title to search'),
 });
 const Header = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const onSubmit = (values, onSubmitProps) => {
     dispatch(SearchItem(values));
@@ -79,7 +80,9 @@ const Header = () => {
                   <h4 className="ms-3 text-white fs-5 mt-2">
                     <Button
                       variant="outline-light"
-
+                      onClick={() => {
+                        navigate('/');
+                      }}
                     >
                       <BiUserCircle className="fs-4" />
                       <span className=" ms-1">Sign Out</span>

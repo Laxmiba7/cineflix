@@ -1,6 +1,6 @@
 /* eslint-disable no-case-declarations */
 import {
-  ADD_TO_FAV, MOVIE_LIST, SEARCH_ITEM, CLEAR_SEARCH,
+  ADD_TO_FAV, MOVIE_LIST, SEARCH_ITEM, CLEAR_SEARCH, DELETE_ITEM,
 } from '../constants';
 
 const initialState = {
@@ -45,6 +45,13 @@ const movieReducer = (state = initialState, action) => {
       return {
         ...state,
         searchItem: [],
+      };
+    case DELETE_ITEM:
+      const filteredItem = state.fav.filter((i) => i.id !== action.payload.id);
+
+      return {
+        ...state,
+        fav: filteredItem,
       };
 
     default:

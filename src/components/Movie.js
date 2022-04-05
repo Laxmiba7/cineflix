@@ -41,7 +41,7 @@ const Movie = (props) => {
             />
           </div>
 
-          <h3 className="card-title mt-2"><Link to="/product" style={{ textDecoration: 'none', color: '#000' }}>{title}</Link></h3>
+          <h3 className="card-title mt-2"><Link to={`/movie/${id}`} style={{ textDecoration: 'none', color: '#000' }}>{title}</Link></h3>
           <div className="d-flex flex-column justify-content-between" style={{ color: '#000' }}>
             <h5>Description:</h5>
 
