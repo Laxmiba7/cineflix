@@ -40,58 +40,60 @@ const Header = () => {
             {' '}
             <Navbar.Brand style={{ color: '#FFF' }}>CineFlix</Navbar.Brand>
           </Link>
-          <Navbar.Toggle aria-controls="navbarScroll" />
-          <Navbar.Collapse id="navbarScroll">
-            <Formik
-              initialValues={initialValues}
-              validationSchema={validationSchema}
-              onSubmit={onSubmit}
-            >
-              <Form className="d-flex ms-5 formMargin">
-                <Field
-                  type="text"
-                  placeholder="Search by title"
-                  className="me-2"
-                  aria-label="Search"
-                  id="title"
-                  name="title"
-                />
-                <ErrorMessage name="title" component={TextError} />
-                <Button variant="success" type="submit">
-                  Search
-                </Button>
-              </Form>
-            </Formik>
-            <Nav
-              className="ms-auto my-2 my-lg-0"
-              style={{ maxHeight: '100px' }}
-              navbarScroll
-            >
-              <div className="nav-avatar d-flex">
-                <NavLink
-                  className="text-white  me-3 mt-3 fs-5"
-                  to="/favorites"
-                  style={{ textDecoration: 'none' }}
-                >
-                  My Favorites
-                </NavLink>
+          <div className="menu">
+            <Navbar.Toggle aria-controls="navbarScroll" />
+            <Navbar.Collapse id="navbarScroll">
+              <Formik
+                initialValues={initialValues}
+                validationSchema={validationSchema}
+                onSubmit={onSubmit}
+              >
+                <Form className="d-flex ms-5 formMargin">
+                  <Field
+                    type="text"
+                    placeholder="Search by title"
+                    className="me-2"
+                    aria-label="Search"
+                    id="title"
+                    name="title"
+                  />
+                  <ErrorMessage name="title" component={TextError} />
+                  <Button variant="success" type="submit">
+                    Search
+                  </Button>
+                </Form>
+              </Formik>
+              <Nav
+                className="ms-auto my-2 my-lg-0"
+                style={{ maxHeight: '100px' }}
+                navbarScroll
+              >
+                <div className="nav-avatar d-flex">
+                  <NavLink
+                    className="text-white  m-3 fs-5"
+                    to="/favorites"
+                    style={{ textDecoration: 'none' }}
+                  >
+                    My Favorites
+                  </NavLink>
 
-                <Link to="/" style={{ textDecoration: 'none' }}>
-                  <h4 className="ms-3 text-white fs-5 mt-2">
-                    <Button
-                      variant="outline-light"
-                      onClick={() => {
-                        navigate('/');
-                      }}
-                    >
-                      <BiUserCircle className="fs-4" />
-                      <span className=" ms-1">Sign Out</span>
-                    </Button>
-                  </h4>
-                </Link>
-              </div>
-            </Nav>
-          </Navbar.Collapse>
+                  <Link to="/" style={{ textDecoration: 'none' }}>
+                    <h4 className="ms-3 text-white fs-5 mt-2">
+                      <Button
+                        variant="outline-light"
+                        onClick={() => {
+                          navigate('/');
+                        }}
+                      >
+                        <BiUserCircle className="fs-4" />
+                        <span className=" ms-1">Sign Out</span>
+                      </Button>
+                    </h4>
+                  </Link>
+                </div>
+              </Nav>
+            </Navbar.Collapse>
+          </div>
         </Container>
       </Navbar>
     </div>

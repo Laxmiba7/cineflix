@@ -6,6 +6,7 @@ import {
 import * as Yup from 'yup';
 import { useNavigate } from 'react-router-dom';
 import TextError from './TextError';
+import Header from './Header';
 
 const initialValues = {
 
@@ -28,8 +29,8 @@ const LoginPage = ({ authenticate }) => {
     navigate('/movies');
   };
   return (
-    <>
-
+    <div className="login">
+      <Header />
       <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
         <div
           className="vh-100 gradient-custom"
@@ -119,7 +120,7 @@ const LoginPage = ({ authenticate }) => {
           </div>
         </div>
       </Formik>
-    </>
+    </div>
   );
 };
 export default LoginPage;

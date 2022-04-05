@@ -24,9 +24,7 @@ body{
 .error {
     font-size: 1rem;
 }
-.formMargin{
-    margin-left: 20rem!important;
-}
+
 .navbar{
     background-color: #ff424f;
 }
@@ -36,4 +34,8 @@ body{
 
 .moviepage-container p{
     color: #FFF;
+}
+
+.login .menu {
+    display: none;
 }
