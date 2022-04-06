@@ -23,7 +23,7 @@ function App() {
           {user && (
           <>
 
-            <Route path="movies" element={<Movies />} />
+            <Route path="movies" element={<Movies setUser={setUser} />} />
             <Route path="favorites" element={<Favorites />} />
 
             <Route path="/movie/:id" element={<MoviePage />} />

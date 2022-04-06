@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import {
   Formik, Form, Field, ErrorMessage,
@@ -20,7 +21,7 @@ const initialValues = {
 const validationSchema = Yup.object({
   title: Yup.string().required('Please Enter a title to search'),
 });
-const Header = () => {
+const Header = ({ setUser }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const onSubmit = (values, onSubmitProps) => {
@@ -77,19 +78,19 @@ const Header = () => {
                     My Favorites
                   </NavLink>
 
-                  <Link to="/" style={{ textDecoration: 'none' }}>
-                    <h4 className="ms-3 text-white fs-5 mt-2">
-                      <Button
-                        variant="outline-light"
-                        onClick={() => {
-                          navigate('/');
-                        }}
-                      >
-                        <BiUserCircle className="fs-4" />
-                        <span className=" ms-1">Sign Out</span>
-                      </Button>
-                    </h4>
-                  </Link>
+                  <h4 className="ms-3 text-white fs-5 mt-2">
+                    <Button
+                      variant="outline-light"
+                      onClick={() => {
+                        setUser(false);
+                        navigate('/');
+                      }}
+                    >
+                      <BiUserCircle className="fs-4" />
+                      <span className=" ms-1">Sign Out</span>
+                    </Button>
+                  </h4>
+
                 </div>
               </Nav>
             </Navbar.Collapse>
